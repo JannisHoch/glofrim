@@ -617,7 +617,7 @@ while hydrodynamicModel.get_current_time() < (hydrologicModel.get_time_step() * 
 # REPEATING STEPS UNTIL END OF MODELLING PERIOD
 # -------------------------------------------------------------------------------------------------
 
-while hydrologicModel.get_time_step() < end_time:
+while hydrodynamicModel.get_time_step() < end_time:
 
     if model_type == 'DFM':
         current_water_depth = hydrodynamicModel.get_var('s1') - hydrodynamicModel.get_var('bl')
