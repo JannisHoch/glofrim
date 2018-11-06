@@ -452,8 +452,10 @@ if use_2way == True:
                                                                                           inundatedArea_HDYN2D_2_HLOG,
                                                                                           waterVolume_HDYN1D_2_HLOG_BMI,
                                                                                           couple_HLOG_2_HDYN_2way,
-                                                                                          coupled_HLOG_indices_2way,
-                                                                                          landmask_pcr)
+                                                                                          coupled_HLOG_indices_2way,                                                                                          landmask_pcr)
+
+if use_2way == False:
+    waterVolume_HDYN2D_2_HLOG_BMI = np.zeros_like(waterVolume_HDYN1D_2_HLOG_BMI)
 
 # -------------------------------------------------------------------------------------------------
 # PLOT
@@ -679,6 +681,9 @@ while hydrodynamicModel.get_time_step() < end_time:
                                                                                               couple_HLOG_2_HDYN_2way,
                                                                                               coupled_HLOG_indices_2way,
                                                                                               landmask_pcr)
+
+    if use_2way == False:
+        waterVolume_HDYN2D_2_HLOG_BMI = np.zeros_like(waterVolume_HDYN1D_2_HLOG_BMI)
 
     if use_2way == True:
         model_functions.updateStorage(hydrologicModel,
